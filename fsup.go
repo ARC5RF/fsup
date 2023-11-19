@@ -15,7 +15,7 @@ func From(base, what string) (string, error) {
 		return p, nil
 	}
 	d := filepath.Dir(base)
-	if len(d) > 0 {
+	if len(d) > 0 && d != base {
 		return From(d, what)
 	}
 	return "", os.ErrNotExist
